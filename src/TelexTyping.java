@@ -13,7 +13,6 @@ public class TelexTyping {
     }
 
     public static int countVietnameseCharacters(String input) {
-        // Tạo một bảng ánh xạ cho các kiểu gõ telex
         Map<String, String> telexMap = new HashMap<>();
         telexMap.put("aw", "ă");
         telexMap.put("aa", "â");
@@ -26,9 +25,7 @@ public class TelexTyping {
         int count = 0;
         int i = 0;
 
-        // Duyệt qua chuỗi đầu vào
         while (i < input.length()) {
-            // Kiểm tra ký tự đơn lẻ
             String singleChar = String.valueOf(input.charAt(i));
             if (telexMap.containsKey(singleChar)) {
                 count++;
@@ -36,7 +33,6 @@ public class TelexTyping {
                 continue;
             }
 
-            // Kiểm tra cặp ký tự liên tiếp
             if (i + 1 < input.length()) {
                 String doubleChar = input.substring(i, i + 2);
                 if (telexMap.containsKey(doubleChar)) {
@@ -46,7 +42,6 @@ public class TelexTyping {
                 }
             }
 
-            // Nếu không phải chữ có dấu, tiếp tục kiểm tra ký tự tiếp theo
             i++;
         }
 
